@@ -2,10 +2,10 @@
 #define Max_Size 50
 int main()
 {
-    int i, address, tempAddress, data, table[Max_Size], end;
+    int i, address, temporaryAddress, data, hashTabel[Max_Size], end;
     for (int i = 0; i < Max_Size; i++)
     {
-        table[i] = 0;
+        hashTabel[i] = 0;
     }
     while (1)
     {
@@ -13,25 +13,25 @@ int main()
         scanf("%d", &address);
         printf("\nEnter The Data to Insert:");
         scanf("%d", &data);
-        tempAddress = address % Max_Size;
+        temporaryAddress = address % Max_Size;
         while (1)
         {
-            if (table[tempAddress] == 0)
+            if (hashTabel[temporaryAddress] == 0)
             {
-                table[tempAddress] = data;
-                printf("Data insert at index index %d\n", tempAddress);
+                hashTabel[temporaryAddress] = data;
+                printf("Data insert at index index %d\n", temporaryAddress);
                 break;
             }
             else
             {
-                tempAddress++;
+                temporaryAddress++;
             }
         }
         printf("INDEX\t\tDATA\n");
         for (int i = 0; i < Max_Size; i++)
         {
-            if(table[i] !=0){
-            printf("%d\t\t%d\n", i, table[i]);
+            if(hashTabel[i] !=0){
+            printf("%d\t\t%d\n", i, hashTabel[i]);
             }
         }
         printf("\n");
