@@ -1,9 +1,9 @@
 #include <stdio.h>
-#define Max_Size 50
+#define MAXSIZE 50
 int main()
 {
-    int i, address, temporaryAddress, data, hashTabel[Max_Size], end;
-    for (int i = 0; i < Max_Size; i++)
+    int i, address, temporaryAddress, data, hashTabel[MAXSIZE], end;
+    for (int i = 0; i < MAXSIZE; i++)
     {
         hashTabel[i] = 0;
     }
@@ -13,7 +13,7 @@ int main()
         scanf("%d", &address);
         printf("\nEnter The Data to Insert:");
         scanf("%d", &data);
-        temporaryAddress = address % Max_Size;
+        temporaryAddress = address % MAXSIZE;
         while (1)
         {
             if (hashTabel[temporaryAddress] == 0)
@@ -28,7 +28,7 @@ int main()
             }
         }
         printf("INDEX\t\tDATA\n");
-        for (int i = 0; i < Max_Size; i++)
+        for (int i = 0; i < MAXSIZE; i++)
         {
             if(hashTabel[i] !=0){
             printf("%d\t\t%d\n", i, hashTabel[i]);
