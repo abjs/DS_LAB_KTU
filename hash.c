@@ -1,8 +1,8 @@
 #include <stdio.h>
-#define MAXSIZE 50
+#define MAXSIZE 20
 int main()
 {
-    int i, address, temporaryAddress, data, hashTabel[MAXSIZE], end;
+    int i, address, temporaryAddress, data, hashTabel[MAXSIZE], end,count;
     for (int i = 0; i < MAXSIZE; i++)
     {
         hashTabel[i] = 0;
@@ -14,6 +14,7 @@ int main()
         printf("\nEnter The Data to Insert:");
         scanf("%d", &data);
         temporaryAddress = address % MAXSIZE;
+        count = 0;
         while (1)
         {
             if (hashTabel[temporaryAddress] == 0)
@@ -25,6 +26,14 @@ int main()
             else
             {
                 temporaryAddress++;
+                count++;
+            
+            }
+            if(temporaryAddress == MAXSIZE){
+                temporaryAddress=0;
+            }
+            if (count == MAXSIZE){
+                break;
             }
         }
         printf("INDEX\t\tDATA\n");
@@ -40,6 +49,10 @@ int main()
         if (end == 0)
         {
             break;
+        }
+        else if (count == MAXSIZE){
+                printf("\nHash Table Is Full NO more options possebile");
+                break;
         }
     }
     return 0;
